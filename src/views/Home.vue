@@ -4,11 +4,11 @@
     <v-leftcard v-if="!isPortrait && isPhone === false"></v-leftcard>
     <div style="width: 98%">
       <el-row align="middle" style="width: 100%; margin-top: 10px">
-        <el-button> <a href="./#self">Homepage</a></el-button>
-        <el-button><a href="./#research">Research</a></el-button>
-        <el-button><a href="./#publications">Publications</a></el-button>
-        <el-button><a href="./#services">Services</a></el-button>
-        <el-button><a href="./#people">People</a></el-button>
+        <el-button @click="toGo('self')"><a>Homepage</a></el-button>
+        <el-button @click="toGo('research')"><a>Research</a></el-button>
+        <el-button @click="toGo('publications')"><a>Publications</a></el-button>
+        <el-button @click="toGo('services')"><a>Services</a></el-button>
+        <el-button @click="toGo('people')"><a>People</a></el-button>
       </el-row>
       <el-divider></el-divider>
 
@@ -39,6 +39,12 @@
 <script>
 export default {
   name: "Home",
+  methods: {
+    toGo(val) {
+      console.log(val);
+      document.querySelector("#" + val).scrollIntoView(true);
+    },
+  },
   mounted() {
     let that = this;
     if (
